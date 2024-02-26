@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      basket: [],
       items: [
         {
           id: 1,
@@ -34,13 +35,30 @@ class App extends React.Component {
         }
       ]
     }
+
+    const addToBasket = function(item) {
+      let basket = [...this.state.basket]
+      let isFound = false
+      basket.forEach((el, i) => {
+        if(el.id === item.id) {
+          isFound = true
+          basket[i].quantity ++
+        }
+      })
+      if(!isFound) {
+        item.quantity = 1
+        basket.push(item)
+      }
+      this.setState({basket: basket})
+    }
+    this.addToBasket = addToBasket.bind(this)
   }
 
   render() {
      return (
     <div className="wrapper">
-      <Header />
-      <Items items={this.state.items} />
+      <Header basket={this.state.basket} />
+      <Items items={this.state.items} onAdd={this.addToBasket} />
       <Footer />
     </div>
   )}
