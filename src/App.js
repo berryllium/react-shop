@@ -51,13 +51,20 @@ class App extends React.Component {
       }
       this.setState({basket: basket})
     }
+
+    const deleteFromBasket = function(item) {
+      this.setState({basket:  this.state.basket.filter(el => el.id !== item.id)})
+    }
+
+
     this.addToBasket = addToBasket.bind(this)
+    this.deleteFromBasket = deleteFromBasket.bind(this)
   }
 
   render() {
      return (
     <div className="wrapper">
-      <Header basket={this.state.basket} />
+      <Header basket={this.state.basket} onDelete={this.deleteFromBasket}/>
       <Items items={this.state.items} onAdd={this.addToBasket} />
       <Footer />
     </div>

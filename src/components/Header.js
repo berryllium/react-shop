@@ -16,7 +16,7 @@ export default function Header(props) {
             <FaShoppingCart onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`shop-cart-button ${cartOpen ? 'active' : ''}`} />
 
             { cartOpen && (
-                <Basket items={props.basket}/>
+                <Basket items={props.basket} onDelete={props.onDelete}/>
             )}
         </div>
         <div className='presentation'></div>

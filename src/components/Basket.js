@@ -3,11 +3,10 @@ import BasketItem from './BasketItem'
 
 export class Basket extends Component {
   render() {
-    console.log(this.props)
     return (
         <div className='shop-cart'>
-            {this.props.items.map(el => (
-                <BasketItem key={el.id} item={el} />
+            {this.props.items.map(item => (
+                <BasketItem key={item.id} item={item} onDelete={this.props.onDelete}/>
             ))}
         </div>
     )

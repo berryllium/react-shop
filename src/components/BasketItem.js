@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FaTrash } from 'react-icons/fa'
 
 export class BasketItem extends Component {
   render() {
@@ -10,6 +11,7 @@ export class BasketItem extends Component {
             <div>
                 <span>$ {this.props.item.price}</span>
                 <span> - {this.props.item.quantity}</span>
+                <FaTrash className='delete-icon' onClick={() => this.props.onDelete(this.props.item)} />
             </div>
         </div>
       </div>

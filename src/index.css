@@ -80,6 +80,20 @@ header .basketItem img {
     margin-right: 30px;
 }
 
+header .delete-icon {
+    color: #ca5252;
+    float: right;
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+    transition: color, transform .5s ease;
+}
+
+header .delete-icon:hover {
+    color: #d83030;
+    transform: scale(1.5);
+}
+
 
 header .presentation {
     margin: 50px 0;
